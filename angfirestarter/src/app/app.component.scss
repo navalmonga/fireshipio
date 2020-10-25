@@ -1,0 +1,62 @@
+.logo {
+  height: 36px;
+  display: block;
+  padding-top: 12px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.profile {
+  img {
+    display: block;
+    margin: 0 auto;
+    height: 96px;
+    border-radius: 50%;
+  }
+  padding: 1rem 10rem;
+  pre {
+    text-align: left;
+    padding: 1rem;
+    background-color: #222222;
+    color: #faf3f6;
+    border-radius: 0.2rem;
+  }
+}
+
+.button {
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  margin: 0 auto;
+  text-decoration: none !important;
+  font-size: 16px;
+  width: 12rem;
+  height: 2rem;
+  background-color: #222222;
+  color: #faf3f6;
+  border: none;
+  border-radius: 2rem;
+  span {
+    flex: 0.4;
+    img {
+      padding-top: 4px;
+      width: 20px;
+      &.big {
+        padding-top: 8px;
+        width: 26px;
+      }
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}

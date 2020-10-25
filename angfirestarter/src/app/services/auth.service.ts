@@ -1,0 +1,69 @@
+import { Injectable, ɵɵProvidersFeature } from '@angular/core';
+import { provideRoutes, Router } from '@angular/router';
+
+
+import { auth } from 'firebase/app';
+import { AngularFireAuth } from '@angular/fire/auth';
+import {
+  AngularFirestore,
+  AngularFirestoreDocument
+} from '@angular/fire/firestore';
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { User } from './user.model';
+import { EmailValidator } from '@angular/forms';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  user$: Observable<any>;
+
+  constructor(
+    private afAuth: AngularFireAuth,
+    private afs: AngularFirestore,
+    private router: Router,
+  ) {
+    this.user$ = this.afAuth.authState.pipe(
+      switchMap(user => {
+        if (user) {
+          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+        } else {
+          return of(null);
+        }
+      })
+    );
+  }
+
+  async googleSignIn() {
+    const provider = new auth.GoogleAuthProvider();
+    const credential = await this.afAuth.signInWithPopup(provider);
+    return this.updateUserData(credential.user, 'google');
+  }
+
+  async githubSignIn() {
+    const provider = new auth.GithubAuthProvider();
+    const credential = await this.afAuth.signInWithPopup(provider);
+    return this.updateUserData(credential.user, 'github');
+  }
+
+  async signOut() {
+    await this.afAuth.signOut();
+    return this.router.navigate(['/']);
+  }
+
+  private updateUserData({ uid, email, displayName, photoURL }, provider) {
+    // Sets user data to firestore on login
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
+
+    const data = {
+      uid: uid,
+      provider: provider, 
+      email: email,
+      displayName: displayName,
+      photoURL: photoURL,
+    };
+
+    return userRef.set(data, { merge: true });
+  }
+}
