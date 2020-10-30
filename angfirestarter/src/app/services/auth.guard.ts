@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
       tap(loggedIn => {
         if (!loggedIn) {
           console.log('Access denied. Login to proceed.');
-          alert('Sorry, access denied. Please 𝙎𝙄𝙂𝙉 𝙄𝙉 and try again.');
+          alert('Sorry, access denied. Please LOGIN with a provider below and try again.');
           this.router.navigate(['/']);
         } else {
           console.log('Secure thing accessed. Yay!')

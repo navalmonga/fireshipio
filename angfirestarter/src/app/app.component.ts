@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  fastAssets = 'https://raw.githubusercontent.com/fuesorg/assets/master/fuesorg';
+  fastAssets = 'https://cdn.fues.us/fuesorg';
   constructor(
     public router: Router,
     public auth: AuthService

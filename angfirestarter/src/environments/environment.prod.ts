@@ -2,13 +2,13 @@ export const environment = {
   production: true,
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   firebaseConfig: {
-    apiKey: "AIzaSyA8P9GjFR-FPRrJEOqNXcyNolnJwU3K9K0",
-    authDomain: "angfirestarterprod.firebaseapp.com",
-    databaseURL: "https://angfirestarterprod.firebaseio.com",
-    projectId: "angfirestarterprod",
-    storageBucket: "angfirestarterprod.appspot.com",
-    messagingSenderId: "12338815509",
-    appId: "1:12338815509:web:7adaaefb0b471dff56641c",
-    measurementId: "G-KP4RQPVG92"
+    apiKey: "AIzaSyDJ6PgGD4bjcUNh6nsK3JYGWXUU2IGyEYM",
+    authDomain: "angfirestarterdev.firebaseapp.com",
+    databaseURL: "https://angfirestarterdev.firebaseio.com",
+    projectId: "angfirestarterdev",
+    storageBucket: "angfirestarterdev.appspot.com",
+    messagingSenderId: "109358136191",
+    appId: "1:109358136191:web:d4839992dc6152576af84a",
+    measurementId: "G-GPCXH08PX9"
   }
 };
