@@ -1,5 +1,5 @@
-<img src="{{ fastAssets }}/fues-reg-light.svg" aria-label="fuesorg logo" class="logo"/>
-<h1>Fues&trade; Open Source<br/><br/>AngFireStarter</h1>
+<img src="{{ fastAssets }}/noun-fire.svg" aria-label="angstarter logo" class="logo"/>
+<h1>angstarter</h1>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <div class="profile" *ngIf="auth.user$ | async as user; else login">
   <img src="{{ user.photoURL }}" alt="{{ user.displayName }}" />
@@ -7,15 +7,15 @@
   <h4>Email: {{ user.email }}</h4>
   <pre> {{ user | json }} </pre>
   <hr>
-  <button class="button" (click)="auth.signOut()">Sign Out</button>
+  <button class="button secure" (click)="auth.signOut()">Sign Out</button>
 </div>
 <div class="profile">
-  <a class="button" href="/secure">A Secure Route&nbsp;&rarr;</a>
+  <a class="button secure" href="/secure">Secure Route&nbsp;&rarr;</a>
 </div>
 <ng-template #login>
-  <button class="button" (click)="auth.googleSignIn()"><span role="img"><img src="{{ fastAssets }}/brands/g-google-color.svg" aira-label="google g" /></span>Login with Google</button>
+  <button class="button" (click)="auth.googleSignIn()"><span role="img"><img src="{{ fastAssets }}/google-g-2015.svg" aira-label="google g" /></span>Google&nbsp;&rarr;</button>
   <br/>
-  <button class="button" (click)="auth.githubSignIn()"><span role="img"><img src="{{ fastAssets }}/brands/github.svg" aira-label="github" class="big"/></span>Login with GitHub</button>
+  <button class="button" (click)="auth.githubSignIn()"><span role="img"><img src="{{ fastAssets }}/github-badge.svg" aira-label="github" class="big"/></span>GitHub&nbsp;&rarr;</button>
 </ng-template>
 <router-outlet></router-outlet>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
